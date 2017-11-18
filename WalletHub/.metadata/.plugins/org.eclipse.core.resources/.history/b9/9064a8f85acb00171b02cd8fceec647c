@@ -1,0 +1,45 @@
+package WalletHub.Pages;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
+import WH.Test.MasterFramework.WHBaseObjects.DriverContext;
+import WH.Test.MasterFramework.WHBaseObjects.WHBasePage;
+import WH.Test.MasterFramework.WHBaseObjects.WebControlExtensions;
+
+public class WHInsuranceCompanyReviewPage extends WHBasePage
+{
+	public  WHInsuranceCompanyReviewPage(WebDriver driver)
+	{	
+	 super(driver);
+	 PageFactory.initElements(driver,this);
+	}
+	
+	@FindBy(how=How.XPATH,using="//*[@id='review-content']")
+	public WebElement yourReview;
+	
+	@FindBy(how=How.XPATH,using="//*[@class='btn blue']")
+	public WebElement submitBttn;
+	
+	@FindBy(how=How.XPATH,using="//*[@class='dropdown-title']")
+	public WebElement dropDownBox;
+	
+	@FindBy(how=How.XPATH,using="//*[@data-target='Health']")
+	public WebElement health;
+	
+	
+	//*[@data-target="Health"]
+	
+	public void selectFromDropDownMenu(WebDriver driver,String element,String value,String elementType)
+	{
+		WebControlExtensions.SelectDropDown(driver, element, value, elementType);
+	}
+	
+	public void selectFromDropDownMenuByDDL(String value)
+	{
+		WebControlExtensions.SelectItemByValueFromDDL(dropDownBox,value);
+	}
+}

@@ -1,0 +1,22 @@
+package WallettHubTest;
+
+import org.testng.annotations.Optional;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+import WH.Test.MasterFramework.WHBaseObjects.WHBase;
+import WalletHub.Pages.WHInsuranceCompanyPage;
+
+
+public class InsuranceCompanyPageTest extends WHBase
+{
+	  @Test
+	  @Parameters({ "browserName"})
+	  public void  givenIm_WHUser_WhenIGo_ToTheLoginPage_IClickLogin(@Optional("chrome")String browserName) 
+	  {	 
+		  setup(browserName);
+		  intiateInsuranceCompanyBrowser();
+		  currentPage =  getInstance(WHInsuranceCompanyPage.class);
+		  currentPage.As(WHInsuranceCompanyPage.class).hoverOverSubmitRating();
+		  currentPage.As(WHInsuranceCompanyPage.class).validateStarsLightUp();
+	  }  
+}

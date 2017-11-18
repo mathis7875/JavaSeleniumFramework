@@ -1,0 +1,25 @@
+package WH.Test.MasterFramework.WHBaseObjects;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
+
+public abstract class WHBasePage  extends WHBase
+{
+	
+	
+	public <T extends WHBasePage> T As(Class<T> pageInstance) {
+	    try {
+	        return (T) this;
+	    } catch (Exception e) {
+	        e.getStackTrace();
+	    }
+	    return null;
+	}
+	
+	
+	public WHBasePage(WebDriver driver)
+	{
+		PageFactory.initElements(driver,this);
+	}
+}
+

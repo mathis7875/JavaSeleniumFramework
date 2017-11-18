@@ -1,0 +1,14 @@
+package WH.Test.MasterFramework.WHBaseObjects;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
+
+public class WHBase 
+{
+	public static BasePage currentPage;
+
+	public <T extends BasePage> T GetInstance(Class<T> page) {
+	    Object obj = PageFactory.initElements(DriverContext.Driver, page);
+	    return page.cast(obj);
+	}	
+}

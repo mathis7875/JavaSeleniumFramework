@@ -1,0 +1,24 @@
+package WallettHubTest;
+
+import org.testng.annotations.Optional;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+import WH.Test.MasterFramework.WHBaseObjects.WHBase;
+import WalletHub.Pages.FBHomePage;
+import WalletHub.Pages.FBLoginPage;
+
+
+public class LoginFacebookTest extends WHBase
+{	
+	  @Test
+	  @Parameters({ "browserName"})
+	  public void  givenIm_WHUser_WhenIGo_ToTheLoginPage_IClickLogin(@Optional("chrome")String browserName) 
+	  {	 
+		  setup(browserName);
+		  intiateWalletHubBrowser();
+		  currentPage =  getInstance(FBLoginPage.class);
+		  currentPage.As(FBLoginPage.class).loginFBuser();
+		  currentPage = getInstance(FBHomePage.class);
+		  currentPage.As(FBHomePage.class).logoutBttn.click();
+	  }  	  
+}

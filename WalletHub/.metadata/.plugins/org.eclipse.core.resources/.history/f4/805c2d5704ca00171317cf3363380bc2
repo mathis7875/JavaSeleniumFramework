@@ -1,0 +1,9 @@
+package WH.Test.MasterFramework.WHBaseObjects;
+
+public abstract class WHBasePage : BHGBase
+{
+	  {
+          PageFactory.InitElements(DriverContext.Driver, this);
+
+      }
+}

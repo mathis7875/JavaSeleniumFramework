@@ -1,0 +1,23 @@
+package WalletHub.Pages;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
+import WH.Test.MasterFramework.WHBaseObjects.DriverContext;
+import WH.Test.MasterFramework.WHBaseObjects.WHBasePage;
+import WH.Test.MasterFramework.WHBaseObjects.WebControlExtensions;
+
+public class WHInsuranceCompanyReviewPage extends WHBasePage
+{
+	public  WHInsuranceCompanyReviewPage(WebDriver driver)
+	{	
+	 super(driver);
+	 PageFactory.initElements(driver,this);
+	}
+	
+	@FindBy(how=How.XPATH,using="//*[@class='wh-rating-notes']")
+	public WebElement submitYourRating;
+}

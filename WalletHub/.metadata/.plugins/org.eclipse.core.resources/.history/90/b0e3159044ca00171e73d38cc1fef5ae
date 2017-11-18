@@ -1,0 +1,14 @@
+package WH.Test.MasterFramework.WHBaseObjects;
+
+public abstract class WHBasePage  extends WHBase
+{
+	public <T extends WHBasePage> T As(Class<T> pageInstance) {
+	    try {
+	        return (T) this;
+	    } catch (Exception e) {
+	        e.getStackTrace();
+	    }
+	    return null;
+	}
+}
+

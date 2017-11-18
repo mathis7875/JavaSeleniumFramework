@@ -1,0 +1,5 @@
+package WH.Test.MasterFramework.WHBaseObjects;
+
+public class WHBasePage {
+
+}

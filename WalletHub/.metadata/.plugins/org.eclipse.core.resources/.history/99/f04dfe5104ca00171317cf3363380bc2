@@ -1,0 +1,38 @@
+package WH.Test.MasterFramework.WHBaseObjects;
+
+public class WHBase 
+{
+	
+	public WHBasePage _CurrentPage {get;set;}
+	
+	public IwebDriver Driver {get;set;}
+	
+	public TPage As<Tpage>() wher TPage : WHbasePage
+	{
+		return (TPage)this;
+		
+	}
+	
+     protected TPage GetInstance<Tpage>() Where TPage : WHBasePage,new()
+     {
+    	 TPage pageInstance = new TPage()
+         {
+             Driver = DriverContext.Driver
+         };
+         PageFactory.InitElements(DriverContext.Driver, pageInstance);
+         return pageInstance; 
+     }
+     
+     public void Setup(String browserName)
+
+     {
+         if (browserName.Equals("ie"))
+             DriverContext.Driver = new InternetExplorerDriver();
+         else if (browserName.Equals("chrome"))
+             DriverContext.Driver = new ChromeDriver();
+         else
+             DriverContext.Driver = new FirefoxDriver();
+
+         DriverContext.Driver.Manage().Window.Maximize();
+     }
+}

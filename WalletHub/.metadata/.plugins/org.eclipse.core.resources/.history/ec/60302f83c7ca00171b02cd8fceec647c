@@ -1,0 +1,30 @@
+package WalletHub.Pages;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.PageFactory;
+import WH.Test.MasterFramework.WHBaseObjects.WHBasePage;
+
+
+public class LoginPage extends WHBasePage
+{
+	
+	public LoginPage(WebDriver Driver)
+	{
+		super(Driver);
+        PageFactory.initElements(Driver,this);
+	}
+	
+	
+
+	@FindBy(how=How.XPATH,using="//*[@id='join-login']/form/div[1]/input")
+	public WebElement userName;
+	
+	@FindBy(how=How.XPATH,using="")
+	public WebElement userPassword;
+    
+	@FindBy(how=How.XPATH,using="")
+	public WebElement loginBttn;
+}

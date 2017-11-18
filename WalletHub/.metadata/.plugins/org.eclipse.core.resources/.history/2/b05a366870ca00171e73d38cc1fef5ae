@@ -1,0 +1,29 @@
+package WallettHubTest;
+
+
+import org.testng.annotations.Test;
+import WH.Test.MasterFramework.WHBaseObjects.WHBase;
+import WalletHub.Pages.LoginPage;
+
+public class LoginTest extends WHBase
+{
+	
+  @Test
+  public void givenIm_WHUser_WhenIGo_ToTheLoginPage_IClickLogin(String browserName) 
+  {	 
+	  setup(browserName);
+	  intiateWalletHubBrowser();
+	  currentPage =  getInstance(LoginPage.class);
+	  currentPage.As(LoginPage.class).userName.sendKeys("test");
+	  currentPage.As(LoginPage.class).userPassword.sendKeys("Test123*");
+	  currentPage.As(LoginPage.class).loginBttn.click();  	  
+  }  
+  
+  @Test 
+  public void givenIm_FBUser_WhenIGo_ToTheLoginPage_IClickLogin(String browserName)
+  {
+    setup(browserName);
+    intiateFaceBookBrowser();
+    currentPage = getInstance(LoginPage.class);
+  }
+}

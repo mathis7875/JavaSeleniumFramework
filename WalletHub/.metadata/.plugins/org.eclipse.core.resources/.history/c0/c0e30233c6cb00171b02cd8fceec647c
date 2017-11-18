@@ -1,0 +1,72 @@
+package WalletHub.Pages;
+
+
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.PageFactory;
+import WH.Test.MasterFramework.WHBaseObjects.DriverContext;
+import WH.Test.MasterFramework.WHBaseObjects.WHBasePage;
+import WH.Test.MasterFramework.WHBaseObjects.WebControlExtensions;
+
+
+public class WHProfileLightUserPage extends WHBasePage
+{
+	
+	 public  WHProfileLightUserPage(WebDriver driver)
+		{	
+		 super(driver);
+		 PageFactory.initElements(driver,this);
+		}
+	 
+		@FindBy(how=How.XPATH,using="//*[@class='remove']")
+		public WebElement removeReview;
+		
+		@FindBy(how=How.XPATH,using="//*[@class='remove']")
+		public WebElement reviewTab;
+		
+		@FindBy(how=How.XPATH,using="//*[@class='remove company-used']")
+		public WebElement removeCompanyReview;
+		
+		public void goToReviewURL(String userName)
+		{
+		 try 
+		 {
+			Thread.sleep(3000);
+			DriverContext.driver.navigate().to("https://wallethub.com/profile/"+userName+"/reviews/");			
+		} 
+		 catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		}
+		
+		public void goToInfoURL(String userName)
+		{  
+			try 
+			{
+				Thread.sleep(3000);
+				DriverContext.driver.navigate().to("https://wallethub.com/profile/"+userName+"/info/");			
+			} 
+			catch (InterruptedException e) {				
+				e.printStackTrace();
+			}			
+		}
+		
+		public void removeReviewCleanUp(String userName)
+		{
+			try {
+				Thread.sleep(3000);
+				DriverContext.driver.navigate().to("https://wallethub.com/profile/"+userName+"/info/");	
+				String Script = "javascript:document.getElementByClass('testobject').click();";
+				((JavascriptExecutor)DriverContext.driver).executeScript(Script);
+			} 
+			catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+		}
+}
+

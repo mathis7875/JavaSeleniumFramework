@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Default suite">
+  <test verbose="1" name="wallethubtest">
+  <parameter name="browser" value="chrome"/>
+    <classes>
+      <class name="WallettHubTest.LoginTest"/>
+    </classes>
+  </test> <!-- Default test -->
+  <test verbose="1" name="wallethubtest">
+  <parameter name="browser" value="chrome"/>
+    <classes>
+      <class name="WallettHubTest.InsuranceCompanyPageTest"/>
+    </classes>
+  </test> <!-- Default test -->
+   </test> <!-- Default test -->
+  <test verbose="1" name="wallethubtest">
+  <parameter name="browser" value="chrome"/>
+    <classes>
+      <class name="WallettHubTest.LoginFacebookTest"/>
+    </classes>
+  </test> <!-- Default test -->
+</suite> <!-- Default suite -->

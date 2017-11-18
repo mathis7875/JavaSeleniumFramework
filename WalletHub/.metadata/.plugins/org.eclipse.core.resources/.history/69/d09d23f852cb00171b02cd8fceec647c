@@ -1,0 +1,36 @@
+package WallettHubTest;
+
+import org.openqa.selenium.WebElement;
+import org.testng.annotations.Optional;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+import WH.Test.MasterFramework.WHBaseObjects.WHBase;
+import WalletHub.Pages.WHInsuranceCompanyPage;
+import WalletHub.Pages.WHInsuranceCompanyReviewPage;
+
+
+public class InsuranceCompanyPageTest extends WHBase
+{
+	  @Test
+	  @Parameters({ "browserName"})
+	  public void  givenIm_WHLightUser_WhenIGo_ToInsurancePage_IHoverOverRatiingStars(@Optional("chrome")String browserName) 
+	  {	 
+		  setup(browserName);
+		  intiateInsuranceCompanyBrowser();
+		  currentPage =  getInstance(WHInsuranceCompanyPage.class);
+		  currentPage.As(WHInsuranceCompanyPage.class).hoverOverSubmitRating();
+		  currentPage.As(WHInsuranceCompanyPage.class).validateStarsLightUp();
+	  }  
+	  
+	  @Test
+	  @Parameters({ "browserName"})
+	  public void givenIm_WHLightUser_ILogin_And_MakeAReview_ThenValidateItPosted(@Optional("chrome")String browserName)
+	  {
+		  setup(browserName);
+		  intiateInsuranceCompanyBrowser();
+		  currentPage =  getInstance(WHInsuranceCompanyPage.class);
+		  currentPage.As(WHInsuranceCompanyPage.class).hoverAndClickFifthReviewStar();
+		  currentPage = getInstance(WHInsuranceCompanyReviewPage.class);
+		  currentPage.As(WHInsuranceCompanyReviewPage.class).selectFromDropDownMenuByDDL("Health");
+	  }
+}

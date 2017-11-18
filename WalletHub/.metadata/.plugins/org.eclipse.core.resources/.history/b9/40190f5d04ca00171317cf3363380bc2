@@ -1,0 +1,17 @@
+package WH.Test.MasterFramework.WHBaseObjects;
+
+public class WHBaseSteps: WHBase
+{
+	  private IWebDriver _driver = null;
+
+      public static IEnumerable<String> BrowserToRunWith()
+      {
+          String[] browsers = { "chrome", "ie", "Firefox" };
+
+          foreach (String b in browsers)
+          {
+              yield return b;
+          }
+      }
+  }
+
